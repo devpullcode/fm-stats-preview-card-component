@@ -44,8 +44,7 @@ These steps will allow you to set up your development environment properly and o
 ## Overview
 
 ### Screenshots
-<img src="./design/screenshot-desktop.png" alt="Texto alternativo" width="545">
-<img src="./design/screenshot-mobile.png" alt="Texto alternativo" width="200">
+<img src="./design/screenshot-desktop.png" alt="Texto alternativo" width="545"> <img src="./design/screenshot-mobile.png" alt="Texto alternativo" width="200">
 
 ### Links
 
