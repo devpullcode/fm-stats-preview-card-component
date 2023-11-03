@@ -8,9 +8,10 @@ html {
 body {
   height: 100vh;
   display: flex;
+  padding: 2rem;
+
   align-items: center;
   justify-content: center;
-
   font-family: v.$font-primary;
   line-height: 1.8;
   background-color: v.$dark-strong;
