@@ -1,0 +1,146 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.m-stats-preview-card-component {
+  width: 20.4375rem;
+  display: grid;
+  grid-template-rows: 15rem auto;
+
+  border-radius: 8px;
+  background-color: v.$dark;
+  box-shadow: 0px 20px 20px -10px rgba(23, 25, 41, 0.2);
+  overflow: hidden;
+
+  @include m.media('lg') {
+    width: auto;
+    max-width: 1110px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  &__content {
+    margin: 2.5rem 2rem 2rem 2rem;
+    @include m.media('lg') {
+      margin: 4.5rem;
+    }
+  }
+
+  // ========== description ========== //
+  &__title {
+    width: auto;
+    margin-bottom: 1rem;
+
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 2rem;
+    text-align: center;
+    color: v.$pure-white;
+
+    @include m.media('lg') {
+      max-width: 25.1875rem;
+      margin-bottom: 1.5625rem;
+
+      font-size: 2.25rem;
+      line-height: 44px;
+      text-align: left;
+      text-wrap: balance;
+    }
+  }
+  &__highlight {
+    color: v.$purple;
+  }
+  &__txt {
+    margin-bottom: 2.5rem;
+
+    font-size: 0.9375rem;
+    line-height: 25px;
+    text-align: center;
+    color: v.$pure-white;
+    opacity: 0.75;
+
+    @include m.media('lg') {
+      margin-bottom: 4.5rem;
+
+      max-width: 21.6875rem;
+      text-align: left;
+    }
+  }
+
+  // ========== stast ========== //
+  &__stats {
+    @include m.media('lg') {
+      display: flex;
+    }
+  }
+  &__stat {
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+  }
+  &__stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 25px;
+    text-align: center;
+    color: v.$pure-white;
+
+    @include m.media('lg') {
+      text-align: left;
+    }
+  }
+  &__stat-label {
+    font-size: 0.75rem;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: v.$pure-white;
+    opacity: 0.6;
+
+    @include m.media('lg') {
+      text-align: left;
+    }
+  }
+
+  // ========== img ========== //
+  &__img {
+    grid-row: 1 / 2;
+    position: relative;
+    background-color: v.$purple;
+
+    @include m.media('lg') {
+      grid-row: inherit;
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      inset: 0;
+      /* Fondo por defecto para navegadores que no soportan webp o avif */
+      background: url('../img/image-header-mobile.jpg') center / cover no-repeat;
+      /* Fondo para navegadores que soportan webp */
+      @supports (background-image: url('data:image/webp;base64,UklGRhIAAABXRUJQVlA4TBEAAAAvAAAAEAcQERGIiP4HAA==')) {
+        background: url('../img/image-header-mobile.webp') center / cover no-repeat;
+      }
+      /* Fondo para navegadores que soportan avif (en el futuro, si Safari lo soporta) */
+      @supports (background-image: url('data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAG1pZjEAAACgbWV0YQAAAAAAAAAOcGFzcAAAAAAAQAAACryb3ZhUAAAAA=')) {
+        background: url('../img/image-header-mobile.avif') center / cover no-repeat;
+      }
+
+      @include m.media('lg') {
+        /* Fondo por defecto para navegadores que no soportan webp o avif */
+        background: url('../img/image-header-desktop.jpg') center / cover no-repeat;
+        /* Fondo para navegadores que soportan webp */
+        @supports (background-image: url('data:image/webp;base64,UklGRhIAAABXRUJQVlA4TBEAAAAvAAAAEAcQERGIiP4HAA==')) {
+          background: url('../img/image-header-desktop.webp') center / cover no-repeat;
+        }
+        /* Fondo para navegadores que soportan avif (en el futuro, si Safari lo soporta) */
+        @supports (background-image: url('data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAG1pZjEAAACgbWV0YQAAAAAAAAAOcGFzcAAAAAAAQAAACryb3ZhUAAAAA=')) {
+          background: url('../img/image-header-desktop.avif') center / cover no-repeat;
+        }
+      }
+
+      mix-blend-mode: multiply;
+    }
+  }
+}
