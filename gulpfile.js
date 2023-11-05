@@ -113,4 +113,8 @@ exports.movImgs = movImgs;
 exports.loadWebp = loadWebp;
 exports.loadAvif = loadAvif;
 
-exports.default = gulp.series(gulp.parallel(scripts, movImgs, loadWebp, loadAvif, fontawesomeFonts, fontawesomeCss), compilerCSS, purgeCSS, watchFile);
+const buildForDeploy = gulp.series(gulp.parallel(scripts, movImgs, loadWebp, loadAvif, fontawesomeFonts, fontawesomeCss), compilerCSS, purgeCSS);
+
+exports.buildForDeploy = buildForDeploy;
+
+exports.default = gulp.series(buildForDeploy, watchFile);
