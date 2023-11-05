@@ -28,7 +28,7 @@ jobs:
         run: cp index.html build/
 
       - name: Update CSS path in index.html
-        run: sed -i 's|href="build/css/main.css"|href="css/all.min.css"|' build/index.html
+        run: sed -i 's|href="build/css/main.css"|href="css/main.css"|' build/index.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
